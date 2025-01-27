@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidhi.ai Chat</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Fullscreen background image with a dark overlay */
+        .fullscreen-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('homepage.webp'); /* Same as welcome.html */
+            background-size: cover;
+            background-position: center center;
+            z-index: -1; /* Ensures background stays behind content */
+        }
+
+        /* Dark overlay to improve contrast for text visibility */
+        .fullscreen-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: -1;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            height: 56px; /* Fixed height for the navbar */
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 15px;
+        }
+
+        /* Chatbot iframe styling */
+        .chatbot-iframe {
+            width: 100%;
+            height: calc(100vh - 56px); /* Full height minus navbar height */
+            border: none;
+            margin-top: 0; /* No extra margin */
+            position: absolute; /* Positioned absolutely to avoid gaps */
+            top: 56px; /* Starts right below the navbar */
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Taskbar) -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Vidhi.ai</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="welcome.html">Vidhi.ai</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Background Image -->
+    <div class="fullscreen-bg"></div>
+    <div class="fullscreen-bg-overlay"></div>
+
+    <!-- Chatbot Embed -->
+    <iframe
+        class="chatbot-iframe"
+        src="https://ayushraj0906-chatwith-legalpdf.hf.space"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

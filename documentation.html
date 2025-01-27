@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Vidhi.ai</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <style>
+        /* Fullscreen background image with a dark overlay */
+        .fullscreen-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('homepage.webp');
+            background-size: cover;
+            background-position: center center;
+            z-index: -1; /* Ensures background stays behind content */
+        }
+
+        /* Dark overlay to improve contrast for text visibility */
+        .fullscreen-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: -1;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 15px;
+        }
+
+        /* Slider styling */
+        .slider {
+            margin-top: 100px;
+            padding: 0 20px;
+        }
+
+        .slider .slick-slide {
+            padding: 0 10px;
+        }
+
+        .slider .slick-slide img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Ensures images cover the box */
+            border-radius: 10px;
+        }
+
+        .slider .slick-slide h3 {
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Boxes styling */
+        .boxes {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+
+        .box {
+            width: 48%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .box iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .box a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (Taskbar) -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Vidhi.ai</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="welcome.html">Vidhi.ai</a></li>
+                <li class="nav-item"><a class="nav-link" href="datasets.html">Datasets</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Background Image -->
+    <div class="fullscreen-bg"></div>
+    <div class="fullscreen-bg-overlay"></div>
+
+    <!-- PDF Slider Section -->
+    <div class="slider">
+        <div>
+            <a href="ProjectDescription.pdf" target="_blank">
+                <img src="/images/overview.png" alt="Project Description">
+                <h3>Project Description</h3>
+            </a>
+        </div>
+        <div>
+            <a href="FAQs.pdf" target="_blank">
+                <img src="/images/FAQS.jpg" alt="FAQs">
+                <h3>FAQs</h3>
+            </a>
+        </div>
+        <div>
+            <a href="GettingStarted.pdf" target="_blank">
+                <img src="/images/starty.jpg" alt="Getting Started">
+                <h3>Getting Started</h3>
+            </a>
+        </div>
+        <div>
+            <a href="RAG(RedAmberGreen)Update.pdf" target="_blank">
+                <img src="/images/RAG.png" alt="RAG Update">
+                <h3>RAG Update</h3>
+            </a>
+        </div>
+        <div>
+            <a href="TechnicalDetails.pdf" target="_blank">
+                <img src="/images/techy.jpg" alt="Technical Details">
+                <h3>Technical Details</h3>
+            </a>
+        </div>
+        <div>
+            <a href="/Pdfs/Legal&CopyrightDisclaimer.pdf" target="_blank">
+                <img src="/images/cpy.jpg" alt="Legal & Copyright Disclaimer">
+                <h3>Legal & Copyright Disclaimer</h3>
+            </a>
+        </div>
+        <div>
+            <a href="Acknowledgments.pdf" target="_blank">
+                <img src="/images/ackno.jpg" alt="Acknowledgments">
+                <h3>Acknowledgments</h3>
+            </a>
+        </div>
+        <div>
+            <a href="/Pdfs/Terms&Conditions.pdf" target="_blank">
+                <img src="terms1.jpg" alt="Terms & Conditions">
+                <h3>Terms & Conditions</h3>
+            </a>
+        </div>
+    </div>
+
+    <!-- Boxes Section -->
+    <div class="boxes">
+        <div class="box">
+            <h3>Project PPTX</h3>
+            <a href="ProjectPresentation.pptx" target="_blank">Download PPTX</a>
+        </div>
+        <div class="box">
+            <h3>Project Video</h3>
+            <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Slick Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,  // Ensure slider is always moving
+                autoplaySpeed: 2000,  // Set auto transition speed (2 seconds)
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

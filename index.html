@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidhi.ai - AI Legal Advisor</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for LinkedIn and Gmail Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Fullscreen background image with a dark overlay */
+        .fullscreen-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('homepage.webp');
+            background-size: cover;
+            background-position: center center;
+            z-index: -1; /* Ensures background stays behind content */
+        }
+
+        /* Dark overlay to improve contrast for text visibility */
+        .fullscreen-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: -1;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 15px;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-family: 'Devanagari', sans-serif;
+        }
+
+        .content h2 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .content h4 {
+            font-size: 1.5rem;
+            font-style: italic;
+        }
+
+        /* Style for the Get Started button */
+        .btn-primary {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border-color: #007bff;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 30px; /* Rounded corners for the main button */
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #003f7f);
+            border-color: #004085;
+            transform: scale(1.05);
+        }
+
+        /* Curved stylish button style */
+        .btn-curved {
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 15px 50px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-curved:hover {
+            background-color: #218838;
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer to always stick at the bottom */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            z-index: 1;
+        }
+
+        /* Responsive styles for mobile */
+        @media (max-width: 768px) {
+            .content h2 {
+                font-size: 2rem;
+            }
+
+            .content h4 {
+                font-size: 1.2rem;
+            }
+
+            .btn-primary {
+                font-size: 1rem;
+                padding: 10px 25px;
+            }
+        }
+
+        /* Additional styles for About Us and Contact Us sections */
+        .section {
+            padding: 60px 0;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-top: 100vh; /* Ensure sections start below the fullscreen background */
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Documentation button style */
+        .btn-documentation {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .btn-documentation:hover {
+            background-color: #0056b3;
+        }
+
+        /* LinkedIn and Gmail link style */
+        .social-link {
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .social-link:hover {
+            text-decoration: underline;
+        }
+
+        .social-link i {
+            margin-right: 5px;
+        }
+
+        /* Groclake Plotch.ai link style */
+        .groclake-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .groclake-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        // JavaScript to animate the Bhagavad Gita quote character by character
+        function typeWriter(element, text, speed) {
+            let i = 0;
+            let interval = setInterval(function() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.onload = function() {
+            const quoteSanskrit = "अन्यायः पापः, किन्तु अन्यायस्य सहनं महापापः";
+            const quoteEnglish = "(Injustice is a sin, but to tolerate injustice is a greater sin.)";
+
+            // Call the typeWriter function for both the Sanskrit and English quotes
+            typeWriter(document.getElementById("sanskrit-quote"), quoteSanskrit, 100);
+            setTimeout(() => {
+                typeWriter(document.getElementById("english-quote"), quoteEnglish, 100);
+            }, quoteSanskrit.length * 100); // Delay the English quote after Sanskrit finishes
+        };
+    </script>
+</head>
+<body>
+
+    <!-- Navbar (Taskbar) -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Vidhi.ai</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="welcome.html">Vidhi.ai</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact-us">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Background Image -->
+    <div class="fullscreen-bg"></div>
+
+    <!-- Dark Overlay for Image -->
+    <div class="fullscreen-bg-overlay"></div>
+
+    <!-- Centered Content Section -->
+    <div class="content">
+        <!-- Bhagavad Gita Quote -->
+        <h2 id="sanskrit-quote"></h2>
+        <h4 id="english-quote"></h4>
+
+        <!-- Get Started Button -->
+        <a href="welcome.html" class="btn btn-primary">Vidhi.ai</a>
+    </div>
+    
+    <!-- About Us Section -->
+    <div id="about-us" class="section">
+        
+        <div class="container">
+            
+            <h2>About Us</h2>
+            <p>This project was made by Ayush Raj and Kashish Tiwari, both from 3rd year UG at IIT BHU in Biomedical Engineering and Mechanical Engineering respectively. This project was made as a part of Groclake Agentathon: Next Generation Agentic Apps.</p>
+            <p>Hackathon Overview:</p>
+            <p>Challenge: Create your own RAG application or agentic app based on a theme of your choice. We were free to choose their own themes to create applications that resonate with their interests and expertise using Groclake tools by plotch.ai. For detailed documentation kindly refer to this:</p>
+            <a href="documents.html" class="btn btn-documentation">Documentation</a>
+            <p style="margin-top: 20px;">
+                <strong>Connect with us:</strong><br>
+                <a href="https://www.linkedin.com/in/ayush-raj-897133323/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i> Ayush Raj
+                </a><br>
+                <a href="mailto:ayush.raj.bme22@iitbhu.ac.in" class="social-link">
+                    <i class="fas fa-envelope"></i> ayush.raj.bme22@iitbhu.ac.in
+                </a><br>
+                <a href="https://www.linkedin.com/in/kashish-tiwari-651938254" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i> Kashish Tiwari
+                </a><br>
+                <a href="mailto:kashish.tiwari.mec22@iitbhu.ac.in" class="social-link">
+                    <i class="fas fa-envelope"></i> kashish.tiwari.mec22@iitbhu.ac.in
+                </a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Contact Us Section -->
+    <div id="contact-us" class="section">
+        
+        <div class="container">
+            
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form action="mailto:ayush.raj.bme22@iitbhu.ac.in" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Query" rows="5" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <p style="margin-top: 20px;">
+                <strong>Groclake Plotch.ai:</strong><br>
+                <a href="https://plotch.ai/" class="groclake-link" target="_blank">
+                    Visit Plotch.ai
+                </a>
+                <br>
+                <a href="https://plotch-ai.gitbook.io/groclake-by-plotch.ai/introduction-to-groclake" class="groclake-link" target="_blank">
+                    Visit Documentation on Groclake Tools
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer Section (now fixed to the bottom) -->
+    <footer>
+        <p>&copy; 2025 Vidhi.ai. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
