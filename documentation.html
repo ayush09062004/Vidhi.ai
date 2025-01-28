@@ -60,20 +60,40 @@
         }
 
         .slider .slick-slide {
-            padding: 0 10px;
+            padding: 0 5px; /* Reduced padding to bring icons closer */
+            text-align: center;
         }
 
-        .slider .slick-slide img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover; /* Ensures images cover the box */
-            border-radius: 10px;
+        .slider .slick-slide i {
+            font-size: 50px;
+            color: white;
+            margin: 0; /* Remove margin to bring icons closer */
         }
 
         .slider .slick-slide h3 {
             text-align: center;
             color: white;
             margin-top: 10px;
+        }
+
+        /* Custom arrow styling */
+        .slick-prev, .slick-next {
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+        }
+
+        .slick-prev {
+            left: -50px; /* Position left arrow */
+        }
+
+        .slick-next {
+            right: -50px; /* Position right arrow */
+        }
+
+        .slick-prev:before, .slick-next:before {
+            font-size: 40px;
+            color: white;
         }
 
         /* Boxes styling */
@@ -112,6 +132,24 @@
         .box a:hover {
             background-color: #0056b3;
         }
+
+        /* PDF List Styling */
+        .pdf-list {
+            max-height: 300px;
+            overflow-y: auto;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .pdf-list a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+
+        .pdf-list a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -137,50 +175,44 @@
     <!-- PDF Slider Section -->
     <div class="slider">
         <div>
-            <a href="ProjectDescription.pdf" target="_blank">
-                <img src="/images/overview.png" alt="Project Description">
+            <a href="/Pdfs/ProjectDescription.pdf" target="_blank">
+                <i class="fas fa-project-diagram"></i>
                 <h3>Project Description</h3>
             </a>
         </div>
         <div>
-            <a href="FAQs.pdf" target="_blank">
-                <img src="/images/FAQS.jpg" alt="FAQs">
-                <h3>FAQs</h3>
-            </a>
-        </div>
-        <div>
-            <a href="GettingStarted.pdf" target="_blank">
-                <img src="/images/starty.jpg" alt="Getting Started">
+            <a href="/Pdfs/GettingStartedWith.pdf" target="_blank">
+                <i class="fas fa-play-circle"></i>
                 <h3>Getting Started</h3>
             </a>
         </div>
         <div>
-            <a href="RAG(RedAmberGreen)Update.pdf" target="_blank">
-                <img src="/images/RAG.png" alt="RAG Update">
+            <a href="/Pdfs/Faqs.pdf" target="_blank">
+                <i class="fas fa-question-circle"></i>
+                <h3>FAQs</h3>
+            </a>
+        </div>
+        <div>
+            <a href="rag.html" target="_blank">
+                <i class="fas fa-sync-alt"></i>
                 <h3>RAG Update</h3>
             </a>
         </div>
         <div>
-            <a href="TechnicalDetails.pdf" target="_blank">
-                <img src="/images/techy.jpg" alt="Technical Details">
-                <h3>Technical Details</h3>
+            <a href="1.pptx.pptx" target="_blank">
+                <i class="fas fa-file-powerpoint"></i>
+                <h3>Presentation</h3>
             </a>
         </div>
         <div>
             <a href="/Pdfs/Legal&CopyrightDisclaimer.pdf" target="_blank">
-                <img src="/images/cpy.jpg" alt="Legal & Copyright Disclaimer">
+                <i class="fas fa-balance-scale"></i>
                 <h3>Legal & Copyright Disclaimer</h3>
             </a>
         </div>
         <div>
-            <a href="Acknowledgments.pdf" target="_blank">
-                <img src="/images/ackno.jpg" alt="Acknowledgments">
-                <h3>Acknowledgments</h3>
-            </a>
-        </div>
-        <div>
             <a href="/Pdfs/Terms&Conditions.pdf" target="_blank">
-                <img src="terms1.jpg" alt="Terms & Conditions">
+                <i class="fas fa-file-contract"></i>
                 <h3>Terms & Conditions</h3>
             </a>
         </div>
@@ -189,12 +221,20 @@
     <!-- Boxes Section -->
     <div class="boxes">
         <div class="box">
-            <h3>Project PPTX</h3>
-            <a href="ProjectPresentation.pptx" target="_blank">Download PPTX</a>
+            <h3>Project Video</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sVcwVQRHIc8?si=S2iuneK7RpfWtSFD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="box">
-            <h3>Project Video</h3>
-            <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+            <h3>PDF Documents</h3>
+            <div class="pdf-list">
+                <a href="/Pdfs/ProjectDescription.pdf" target="_blank">Project Description</a>
+                <a href="/Pdfs/GettingStartedWith.pdf" target="_blank">Getting Started</a>
+                <a href="/Pdfs/Faqs.pdf" target="_blank">FAQs</a>
+                <a href="/Pdfs/Legal&CopyrightDisclaimer.pdf" target="_blank">Legal & Copyright Disclaimer</a>
+                <a href="/Pdfs/Terms&Conditions.pdf" target="_blank">Terms & Conditions</a>
+                <a href="1.pptx.pptx" target="_blank">Presentation</a>
+                <a href="rag.html" target="_blank">RAG Update</a>
+            </div>
         </div>
     </div>
 
@@ -216,6 +256,8 @@
                 slidesToScroll: 1,
                 autoplay: true,  // Ensure slider is always moving
                 autoplaySpeed: 2000,  // Set auto transition speed (2 seconds)
+                prevArrow: '<button type="button" class="slick-prev">Previous</button>', // Left arrow
+                nextArrow: '<button type="button" class="slick-next">Next</button>', // Right arrow
                 responsive: [
                     {
                         breakpoint: 1024,
