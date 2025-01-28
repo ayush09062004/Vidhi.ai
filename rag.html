@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG Status Update</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Fullscreen background image with a dark overlay */
+    .fullscreen-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('homepage.webp');
+        background-size: cover;
+        background-position: center center;
+        z-index: -1; /* Ensures background stays behind content */
+    }
+
+    /* Dark overlay to improve contrast for text visibility */
+    .fullscreen-bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+        z-index: -1;
+    }
+
+    /* Navbar styling */
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    }
+
+    .navbar-brand, .nav-link {
+        color: white !important;
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 15px;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .status {
+      font-weight: bold;
+    }
+    .green {
+      color: #4CAF50;
+    }
+    .amber {
+      color: #FF9800;
+    }
+    .red {
+      color: #F44336;
+    }
+    .toggle-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    .toggle-btn:hover {
+      background-color: #45a049;
+    }
+    .next-steps {
+      display: none;
+      margin-top: 10px;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+    <!-- Fullscreen background image -->
+    <div class="fullscreen-bg"></div>
+    <div class="fullscreen-bg-overlay"></div>
+
+    <!-- Navbar (Taskbar) -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Vidhi.ai</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="welcome.html">Vidhi.ai</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="documentation.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="datasets.html">Datasets</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Details</th>
+          <th>Next Steps</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>PDF Text Extraction from Legal documents for creating Knowledgebase</td>
+            <td class="status green">🟢 Green</td>
+            <td>Text extraction from PDFs is fully functional. Handles most formats well.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">-</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Semantic Search Implementation</td>
+            <td class="status green">🟢 Green</td>
+            <td>Semantic search works as expected. Retrieves relevant chunks from documents.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Can try Hybrid search i.e. Semantic search and similarity search</div>
+            </td>
+          </tr>
+          <tr>
+            <td>DuckDuckGo Web Search Integration</td>
+            <td class="status green">🟢 Green</td>
+            <td>Web search fallback is operational and provides useful results.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Can compare results with using different ai-powered free open-source search engine</div>
+            </td>
+          </tr>
+          <tr>
+            <td>AI-Powered Summarization</td>
+            <td class="status amber">🟡 Amber</td>
+            <td>Summarization works but needs fine-tuning for better brevity and accuracy.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Fine-tune llms based on Indian legal datasets for better results.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Gradio Chat Interface</td>
+            <td class="status green">🟢 Green</td>
+            <td>Chat interface is fully functional and user-friendly.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Add full-fledged backend using express, node.js and db.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Indian Law Specialization</td>
+            <td class="status amber">🟡 Amber</td>
+            <td>System is trained on Indian laws but needs more data for better accuracy.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Expand training dataset for higher accuracy.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Error Handling & Fallbacks</td>
+            <td class="status green">🟢 Green</td>
+            <td>Robust error handling is in place for most edge cases.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Proper vigilance on api checkpoints for error handling</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Deployment & Scalability</td>
+            <td class="status amber">🟡 Amber</td>
+            <td>System is deployed but response time takes on an average 10-15sec due to non-availability of GPU & TPU. Also needs optimization for handling high user traffic.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Explore GPU/Cloud options for faster performance.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Documentation</td>
+            <td class="status green">🟢 Green</td>
+            <td>Project documentation is complete and well-organized.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Periodic updates to reflect changes in features and functionality.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Future Enhancements Planning</td>
+            <td class="status amber">🟡 Amber</td>
+            <td>Plans for multilingual support and mobile app are in progress.</td>
+            <td><button class="toggle-btn" onclick="toggleNextSteps(this)">Next Steps</button>
+              <div class="next-steps">Continue development for multilingual and mobile app features.</div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    <script>
+        function toggleNextSteps(button) {
+          const nextStepsDiv = button.nextElementSibling;
+          nextStepsDiv.style.display = (nextStepsDiv.style.display === "none" || nextStepsDiv.style.display === "") ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>
