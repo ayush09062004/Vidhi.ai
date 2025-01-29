@@ -3,7 +3,7 @@ Vidhi.ai is a Retrieval-Augmented Generation (RAG) based AI agent that provides 
 
 Live at: https://ayush09062004.github.io/Vidhi.ai/ 
 
-##Team Members
+## Team Members
 1. Ayush Raj: IDD, School of Biomedical Engineering, IIT(BHU), Varanasi
 2. Kashish Tiwari: B.Tech, Dept. of Mechanical Engineering, IIT(BHU), Varanasi
 
