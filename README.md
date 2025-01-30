@@ -3,8 +3,8 @@ Vidhi.ai is a Retrieval-Augmented Generation (RAG) based AI agent that provides 
 
 Live at: https://ayush09062004.github.io/Vidhi.ai/ 
 
--Codebase of Vidhi.ai_Chatapp: https://github.com/ayush09062004/Vidhi.ai_ChatApp 
--Codebase of Vidhi.ai Chat with legal pdf: https://github.com/ayush09062004/Vidhi.ai_ChatWithPdf
+- Codebase of Vidhi.ai_Chatapp: https://github.com/ayush09062004/Vidhi.ai_ChatApp 
+- Codebase of Vidhi.ai Chat with legal pdf: https://github.com/ayush09062004/Vidhi.ai_ChatWithPdf
 
 ## Team Members
 1. Ayush Raj: IDD, School of Biomedical Engineering, IIT(BHU), Varanasi
