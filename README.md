@@ -1,5 +1,5 @@
 # Vidhi.ai
-Vidhi.ai is a Retrieval-Augmented Generation (RAG) based AI agent that provides an interactive chat app for legal queries and access to legal documents in PDF format. Powered by GPT-4 via Groclake ModelLake, Vidhi.ai leverages multiple advanced AI techniques to enhance the user experience, providing accurate, real-time responses and a seamless user interface.
+Vidhi.ai is a Retrieval-Augmented Generation (RAG) based AI agent that provides an interactive chat app for legal queries as well as access chat with your legal documents. Powered by GPT-4 via Groclake ModelLake, Vidhi.ai leverages multiple advanced AI techniques to enhance the user experience, providing accurate, real-time responses and a seamless user interface.
 
 Live at: https://ayush09062004.github.io/Vidhi.ai/ 
 
